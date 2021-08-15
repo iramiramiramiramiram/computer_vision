@@ -1,0 +1,6 @@
+#READING IMAGES
+import cv2 as cv
+img = cv.imread('niha.JPEG/Users/iramkamdar/Desktop')
+print(img)
+cv.imshow('iram',img)
+cv.waitKey(0)
