@@ -1,0 +1,13 @@
+import cv2 as cv
+capture = cv.VideoCapture('/Users/iramkamdar/Desktop/niha.mp4')
+
+while True:
+    isTrue, frame = capture.read()
+    cv.imshow('Video',frame)
+    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    cv.imshow("Live", gray)
+    if cv.waitKey(20) & 0xFF == ord('d'):
+        break
+
+capture.release()
+cv.destroyAllWindows()
