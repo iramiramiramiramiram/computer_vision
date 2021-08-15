@@ -1,6 +1,7 @@
 #READING IMAGES
 import cv2 as cv
-img = cv.imread('niha.JPEG/Users/iramkamdar/Desktop')
+img = cv.imread('/Users/iramkamdar/Desktop/niha.JPG')
 print(img)
-cv.imshow('iram',img)
+cv.imshow('im',img)
 cv.waitKey(0)
+
