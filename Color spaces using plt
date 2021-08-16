@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+import cv2 as cv
+img = cv.imread('/Users/iramkamdar/Desktop/niha.JPG')
+cv.imshow('iram',img)
+plt.imshow(img)
+plt.show()
+#plt.imshow(rgb)
+#plt.show()
+
+cv.waitKey(0)
