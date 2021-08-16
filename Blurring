@@ -1,0 +1,19 @@
+import cv2 as cv
+img = cv.imread('/Users/iramkamdar/Desktop/niha.JPG')
+cv.imshow('iram',img)
+
+#AVERAGING
+average = cv.blur(img,(7,7))
+cv.imshow('AVERAGE',average)
+
+#GAUSSIAN BLUR
+gauss = cv.GaussianBlur(img , (7,7),0)
+cv.imshow('GAUSS',gauss)
+
+#MEDIAN BLUR
+median = cv.medianBlur(img, 7)
+cv.imshow('MEDIANBLUR',median)
+
+
+
+cv.waitKey(0)
