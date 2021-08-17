@@ -1,0 +1,22 @@
+import cv2 as cv
+img = cv.imread('/Users/iramkamdar/Desktop/niha.jpg')
+cv.imshow('ik',img)
+
+gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+cv.imshow('GRAY',gray)
+
+blur=cv.GaussianBlur(img,(3,3),cv.BORDER_DEFAULT)
+cv.imshow('BLUR',blur)
+
+canny = cv.Canny(blur,125,175)
+cv.imshow('CANNY EDGES',canny)
+
+contours, hierarchies = cv.findContours(canny , cv.RETR_LIST , cv.CHAIN_APPROX_NONE)
+print(f'{len(contours)} contour(s)found!')
+cv.drawContours(img, contours, -1, (0,230,255), 10)
+cv.imshow('contours',img)
+#insted of using canny and blur
+#ret, thresh = cv.threshold(gray,125,255,cv.THRESH_BINARY)
+#cv.imshow('fkdmf', )
+
+cv.waitKey(0)
