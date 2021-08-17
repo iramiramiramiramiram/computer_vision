@@ -1,0 +1,30 @@
+import cv2 as cv
+import numpy as np
+img= cv.imread('/Users/iramkamdar/Desktop/niha.jpg')
+cv.imshow('image',img)
+
+blank = np.zeros((500,500,3), dtype = 'uint8')
+cv.imshow('BLANK',blank)
+
+#1. PAINT THE IMAGE
+blank[:] = 0,255,0
+cv.imshow('Green',blank)
+
+#2.DRAW A RECTANGLE
+cv.rectangle(blank,(0,0),(100,200),(0,255,255),thickness=2)
+cv.imshow('rectangle',blank)
+
+#3. DRAW A CIRCLE
+cv.circle(blank,(250,250),40,(0,0,255),thickness=3)
+cv.imshow('CIRCLE',blank)
+
+#4. DRAW A LINE
+#cv.line(blank,(0,0),(blank.shape[1]//2,blank.shape[0]//2),(0,255,255),-1)
+cv.line(img,(0,0),(301,400),(255,255,0),5)
+cv.imshow('LINE',blank)
+
+#5. WRITING TEXT
+cv.putText(blank,'Hello',(200,200),cv.FONT_HERSHEY_TRIPLEX,1.0,(0,255,255),2)
+cv.imshow('Text',blank)
+
+cv.waitKey(0)
