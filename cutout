@@ -1,0 +1,22 @@
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
+
+img = cv.imread('/Users/iramkamdar/Desktop/niha.JPG')
+mask = np.zeros(img.shape[:2],np.uint8)
+cv.imshow('mask',mask)
+bgdModel = np.zeros((1,65),np.float64)
+cv.imshow('bgdmodel',bgdModel)
+fgdModel = np.zeros((1,65),np.float64)
+#(x,y,w,h)
+rect = (200,200,1000,1000)
+
+cv.grabCut(img,mask,rect,bgdModel,fgdModel,5,cv.GC_INIT_WITH_RECT)
+mask2 = np.where((mask==2)| (mask ==0),0,1).astype('uint8')
+cv.imshow('mask2',mask2)
+img = img*mask2[:,:,np.newaxis]
+plt.imshow(img)
+plt.colorbar()
+plt.show()
+
+cv.waitKey(0)
