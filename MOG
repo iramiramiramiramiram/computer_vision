@@ -1,0 +1,21 @@
+import cv2 as cv
+import numpy as np
+
+#if you have a recording of some people and you  use this code then you will be to see only the people walking while
+#the whole surrounding will be black.
+cap = cv.VideoCapture(0)
+fgbg = cv.createBackgroundSubtractorMOG2()
+
+while True:
+    ret,frame = cap.read()
+    fgmask = fgbg.apply(frame)
+
+    cv.imshow('original',frame)
+    cv.imshow('fg',fgmask)
+
+    k = cv.waitKey(30) & 0xff
+    if k ==27:
+        break
+
+cap.release()
+cv.destroyAllwindows()
