@@ -1,0 +1,17 @@
+import cv2 as cv
+import numpy
+def rescaleFrame(frame,scale=0.75):
+    width=int(frame.shape[1]*scale)
+    height= int(frame.shape[0]*scale)
+    dimension = (width, height)
+    return cv.resize(frame, dimension, interpolation = cv.INTER_AREA)
+
+capture = cv.VideoCapture('/Users/iramkamdar/Desktop/niha.mp4')
+while True:
+    isTrue, frame = capture.read()
+    frame_resized = rescaleFrame(frame)
+    cv.imshow('Video',frame)
+    cv.imshow('VideoResized', frame_resized)
+
+    if cv.waitKey(20) & 0xFF==ord('d'):
+        break
